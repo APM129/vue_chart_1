@@ -1,0 +1,12 @@
+.main-container-auto-width {
+    width: calc(100% - 32px);
+    @media (min-width: 540px) {
+        width: 508px;
+    }
+    @media (min-width: 740px) {
+        width: calc(100% - 64px);
+    }
+    @media (min-width: 1000px) {
+        width: 1000px;
+    }
+}
