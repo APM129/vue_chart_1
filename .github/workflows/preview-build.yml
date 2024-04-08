@@ -22,9 +22,10 @@ jobs:
           registry-url: https://registry.npmjs.com/
 
       - name: Install and Build
-        run: yarn install & yarn run build
         env: 
           VITE_HF_KEY: ${{secrets.VITE_HF_KEY}}
+        run: yarn install && yarn run build
+        
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

@@ -9,7 +9,7 @@
 ## 运行
 
 ```shell
-yarn install & yarn run dev
+yarn install && yarn run dev
 ```
 ![运行时截图](https://github.com/APM129/assets_folder/blob/main/images/vue_chart_1_img.png?raw=true)
 
