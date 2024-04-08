@@ -22,7 +22,7 @@ jobs:
           registry-url: https://registry.npmjs.com/
 
       - name: Install and Build
-        run: yarn & yarn run build
+        run: yarn install & yarn run build
         env: 
           VITE_HF_KEY: ${{secrets.VITE_HF_KEY}}
 
