@@ -91,7 +91,7 @@ function initChart() {
         color: ['#3970ff'],
         grid: {
             left: 0,
-            top: 14,
+            top: 20,
             right: 0,
             bottom: 20,
         },

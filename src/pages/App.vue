@@ -16,11 +16,12 @@ const isUserSelectCity = ref<boolean>(false);
 
 // TODO: 获取 IP 地址和 IP 归属地
 inquireIP().then(async (res) => {
-  if (!res.success) {
+  if (res.status !== 'success') {
     // TODO: 使用备用接口
   } else if (!isUserSelectCity.value) {
-    const { location } = res
-    const data  = await getCityId({ location: location.split('-')[1] , key: HFKey, range: location.split('-')[0] })
+    const { country } = res
+    // const data  = await getCityId({ location: location.split('-')[1] , key: HFKey, range: location.split('-')[0] })
+    const data  = await getCityId({ location: country , key: HFKey })
     if (!!data) {
       currCityId.value = data.id
       currCityName.value = data.name
