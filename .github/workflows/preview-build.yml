@@ -24,7 +24,7 @@ jobs:
       - name: Install and Build
         env: 
           VITE_HF_KEY: ${{secrets.VITE_HF_KEY}}
-        run: yarn install && yarn run build
+        run: yarn install && yarn run build --base=/vue_chart_1/
         
 
       - name: Deploy
