@@ -25,12 +25,12 @@ yarn & yarn run dev
 
 src  
 |-- api  
-|-- assets
-|-- components
-|-- hooks
-|-- pages
-|-- styles
-|-- types
+|-- assets  
+|-- components  
+|-- hooks  
+|-- pages  
+|-- styles  
+|-- types  
 |-- utils 工具      
 
 ## 开发任务拆解

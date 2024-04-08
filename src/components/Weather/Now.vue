@@ -47,7 +47,7 @@ interface Props {
     weatherNow: HFWeather.WeatherNow;
 }
 
-const props = defineProps<Props>();
+defineProps<Props>();
 
 </script>
 

@@ -7,6 +7,7 @@
             </button>
         </div>
         <div class="option-list"></div>
+        <div style="display: none;">{{ currCityId, currCityName }}</div>
     </div>
 </template>
 
