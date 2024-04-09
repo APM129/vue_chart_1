@@ -8,20 +8,16 @@ import { getWeatherNow, getWeatherDaily, getWeatherHourly } from '@/api/HF.ts'
 const HFKey = import.meta.env.VITE_HF_KEY
 
 const weatherData = ref<HFWeather.WeatherData>({});
-// const currCityId = ref<string>('101181601');
 const currCityId = ref<string>('');
-// const currCityName = ref<string>('驻马店');
 const currCityName = ref<string>('');
 const isUserSelectCity = ref<boolean>(false);
 
-// TODO: 获取 IP 地址和 IP 归属地
 inquireIP().then(async (res) => {
-  if (res.status !== 'success') {
-    // TODO: 使用备用接口
+  if (res.status !== '1') {
+    // TODO: 查询失败
   } else if (!isUserSelectCity.value) {
-    const { country } = res
-    // const data  = await getCityId({ location: location.split('-')[1] , key: HFKey, range: location.split('-')[0] })
-    const data  = await getCityId({ location: country , key: HFKey })
+    const { city, province } = res
+    const data  = await getCityId({ location: city , key: HFKey, range: province })
     if (!!data) {
       currCityId.value = data.id
       currCityName.value = data.name
@@ -43,17 +39,6 @@ const getH5Geo = () => {
     })
   }
 }
-
-
-// TODO: 后面改造成 selectCity 组件的专用处理函数
-// watch(currCityId, async newValue => {
-//   const data  = await getCityId({ location: newValue , key: HFKey})
-//   console.log(data)
-//   if (!!data) {
-//     currCityName.value = data.name
-//   }
-//   // TODO: 错误处理 这里不应该请求不到数据
-// })
 
 
 watch(currCityId, async newValue => {

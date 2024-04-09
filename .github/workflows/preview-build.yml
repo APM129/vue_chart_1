@@ -24,6 +24,7 @@ jobs:
       - name: Install and Build
         env: 
           VITE_HF_KEY: ${{secrets.VITE_HF_KEY}}
+          VITE_AMAP_IP_KEY: ${{secrets.VITE_AMAP_IP_KEY}}
         run: yarn install && yarn run build --base=/vue_chart_1/
         
 
