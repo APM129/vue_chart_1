@@ -13,6 +13,8 @@ yarn install && yarn run dev
 ```
 ![运行时截图](https://github.com/APM129/assets_folder/blob/main/images/vue_chart_1_img.png?raw=true)
 
+[Demo](https://apm129.github.io/vue_chart_1/)
+
 ## 项目使用技术栈
 * 框架 Vue
 * 打包 Vite
