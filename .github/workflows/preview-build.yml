@@ -21,16 +21,16 @@ jobs:
 
       - name: Set environment variables
         run:  |
-          echo "VITE_HF_KEY=${{ secrets.VITE_HF_KEY }}" >> .env.production
+          echo "VITE_HF_KEY=${{ secrets.VITE_HF_KEY || 32 }}" >> .env.production
           echo "VITE_AMAP_IP_KEY=${{ secrets.VITE_AMAP_IP_KEY }}" >> .env.production
 
       - name: Install
         run: yarn install
 
       - name: Build
-        env:
-          VITE_HF_KEY: ${{ secrets.VITE_HF_KEY }}
-          VITE_AMAP_IP_KEY: ${{secrets.VITE_AMAP_IP_KEY}}
+        # env:
+        #   VITE_HF_KEY: ${{ secrets.VITE_HF_KEY }}
+        #   VITE_AMAP_IP_KEY: ${{secrets.VITE_AMAP_IP_KEY}}
         run: yarn run build --base=/vue_chart_1/
         
 
