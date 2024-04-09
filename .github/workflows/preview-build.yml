@@ -25,10 +25,10 @@ jobs:
           echo "VITE_AMAP_IP_KEY=${{ secrets.VITE_AMAP_IP_KEY }}" >> $GITHUB_ENV
 
       - name: Install and Build
+        run: yarn install && yarn run build --base=/vue_chart_1/
         env:
           VITE_HF_KEY: ${{ secrets.VITE_HF_KEY }}
           VITE_AMAP_IP_KEY: ${{secrets.VITE_AMAP_IP_KEY}}
-        run: yarn install && yarn run build --base=/vue_chart_1/
         
 
       - name: Deploy
