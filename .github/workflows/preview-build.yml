@@ -19,18 +19,18 @@ jobs:
           node-version: '20.3.0'
           registry-url: https://registry.npmjs.com/
 
-      - name: Set environment variables
-        run:  |
-          echo "VITE_HF_KEY=${{ secrets.VITE_HF_KEY }}" >> .env.production
-          echo "VITE_AMAP_IP_KEY=${{ secrets.VITE_AMAP_IP_KEY }}" >> $GITHUB_ENV
+      # - name: Set environment variables
+      #   run:  |
+      #     echo "VITE_HF_KEY=${{ secrets.VITE_HF_KEY }}" >> .env.production
+      #     echo "VITE_AMAP_IP_KEY=${{ secrets.VITE_AMAP_IP_KEY }}" >> $GITHUB_ENV
 
       - name: Install
         run: yarn install
 
       - name: Build
-        # env:
-        #   VITE_HF_KEY: ${{ secrets.VITE_HF_KEY }}
-        #   VITE_AMAP_IP_KEY: ${{secrets.VITE_AMAP_IP_KEY}}
+        env:
+          VITE_HF_KEY: ${{ secrets.VITE_HF_KEY }}
+          VITE_AMAP_IP_KEY: ${{secrets.VITE_AMAP_IP_KEY}}
         run: yarn run build --base=/vue_chart_1/
         
 

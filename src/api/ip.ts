@@ -17,7 +17,7 @@ export interface ResultIP {
 
 export function inquireIP() {
     return get<ResultIP>({
-        url: `${import.meta.env.VITE_AMAP_IP_NAV_URL}?key=${import.meta.env.VITE_AMAP_KEY}`,
+        url: `${import.meta.env.VITE_AMAP_IP_NAV_URL}?key=${import.meta.env.VITE_AMAP_IP_KEY}`,
         method: 'GET',
     })
 }
