@@ -9,8 +9,6 @@ jobs:
   build-and-deploy:
     name: Build
     runs-on: ubuntu-latest
-    # env:
-    #   PULL_REQUEST_NUMBER: ${{ github.event.number }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -21,9 +19,14 @@ jobs:
           node-version: '20.3.0'
           registry-url: https://registry.npmjs.com/
 
+      - name: Set environment variables
+        run:  |
+          echo "VITE_HF_KEY=${{ secrets.VITE_HF_KEY }}" >> $GITHUB_ENV
+          echo "VITE_AMAP_IP_KEY=${{ secrets.VITE_AMAP_IP_KEY }}" >> $GITHUB_ENV
+
       - name: Install and Build
-        env: 
-          VITE_HF_KEY: ${{secrets.VITE_HF_KEY}}
+        env:
+          VITE_HF_KEY: ${{ secrets.VITE_HF_KEY }}
           VITE_AMAP_IP_KEY: ${{secrets.VITE_AMAP_IP_KEY}}
         run: yarn install && yarn run build --base=/vue_chart_1/
         
